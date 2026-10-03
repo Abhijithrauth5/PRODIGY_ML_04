@@ -84,11 +84,24 @@ if __name__ == "__main__":
 '''
 
 
-README = '''# Hand Gesture Recognition (Task 4)
+README = '''# Hand Gesture Recognition Model
 
-## Project goal
+## Objective
 
-Train a scikit-learn model to recognize five hand gestures from flattened 3D hand-landmark coordinates. The included deterministic synthetic dataset makes the pipeline runnable immediately, without downloading video data.
+Developing an intuitive gesture recognition pipeline that classifies hand landmarks for system controls. This Task 4 project demonstrates the complete classification workflow with a compact synthetic dataset, so it runs immediately without downloading large video datasets.
+
+## Project architecture
+
+```text
+PRODIGY_ML_04/
+├── dataset/
+│   └── hand_gesture_landmarks.csv  # 150 labeled synthetic landmark samples
+├── src/
+│   └── gesture_model.py            # Feature scaling, training, and validation
+├── requirements.txt                # Python dependencies
+├── README.md                       # Project documentation
+└── setup_gesture_project.py        # Recreates the project scaffold and sample data
+```
 
 ## Dataset and feature extraction
 
@@ -111,23 +124,11 @@ python -m venv .venv
 .venv\\Scripts\\activate
 # macOS/Linux:
 source .venv/bin/activate
-python -m pip install -r requirements.txt
+pip install -r requirements.txt
 python src/gesture_model.py
 ```
 
-## Initial Git setup
-
-The setup script performs these steps automatically by default. The equivalent commands, when run from this project directory with an `origin` remote configured, are:
-
-```bash
-git init
-git add --all
-git -c user.name="Abijeed Rauth" -c user.email="rauthabhijith@gmail.com" commit -m "Initial commit: hand gesture recognition"
-git branch -M main
-git push -u origin main
-```
-
-The push is a normal (non-force) push so Git will reject it rather than overwrite an existing remote history. Configure `origin` before running the setup script, or pass its URL with `--remote`.
+The script prints the held-out validation accuracy and a confusion matrix whose rows are actual gestures and columns are predicted gestures.
 '''
 
 
